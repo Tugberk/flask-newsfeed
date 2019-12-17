@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>my news feed</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style>
+	/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+.footer {
+  background-color: #f5f5f5;
+}
+
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+	  a {
+	  color: red;
+	  font-weight: bold;
+	  }
+	</style>
+</head>
+<body>
+
+
+	<div class="container">
+	 <h1 class="mt-5">My News Feed</h1>
+	<br><br>
+		
+			<form method="post" action="/create">
+					 <div class="form-group">
+				<label for="exampleFormControlTextarea1">Ekle:</label>
+				<textarea class="form-control" name="yazi" id="exampleFormControlTextarea1" rows="3"></textarea>
+				<input type="submit" value="Ekle">
+			  </div>
+			</form>
+		
+	
+	<hr>
+	
+	
+	{% for data in icerik %}
+			<kbd>{{ data[2] }} # {{ data[0] }}</kbd><a href='/delete/{{ data[0] }}' onclick="return confirm('silinecek. emin misin?')"> x</a>
+			<p>{{ data[1] |safe }}</p>
+		{% endfor %}
+	
+	
+	
+	
+	
+	
+	</div>
+</body>
+<script>
+</script>
+</html>
